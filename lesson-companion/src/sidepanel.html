@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>课文伴读</title>
+    <link rel="stylesheet" href="sidepanel.css" />
+  </head>
+  <body>
+    <header class="mast">
+      <p class="eyebrow">EverythingAI · 当前这一课</p>
+      <h1>课文伴读</h1>
+      <p class="lede">我读你屏幕上已经打开的课件图，用你自己的视觉模型讲人话。不需要网站密码，也不会另开一台设备。</p>
+    </header>
+
+    <section class="card" aria-labelledby="setup-title">
+      <div class="card-head">
+        <h2 id="setup-title">模型</h2>
+        <button id="toggle-setup" type="button" class="text-button">收起</button>
+      </div>
+      <div id="setup">
+        <label>
+          预设
+          <select id="preset">
+            <option value="custom">自己填</option>
+            <option value="openai">OpenAI · gpt-4o-mini</option>
+            <option value="qwen">通义千问 · qwen-vl-plus</option>
+            <option value="ollama">本机 Ollama</option>
+          </select>
+        </label>
+        <label>
+          接口地址
+          <input id="base-url" type="url" placeholder="https://api.openai.com/v1" autocomplete="off" />
+        </label>
+        <label>
+          模型名
+          <input id="model" type="text" placeholder="要能看图，例如 gpt-4o-mini" autocomplete="off" />
+        </label>
+        <label>
+          密钥
+          <input id="api-key" type="password" placeholder="本机模型可以留空" autocomplete="off" />
+        </label>
+        <button id="save" type="button" class="primary">保存</button>
+        <p class="hint">密钥只存在这台浏览器里。课件图会发给上面这个接口，不会发给课程网站之外的其他地方。</p>
+      </div>
+    </section>
+
+    <section class="actions">
+      <button id="read" type="button" class="primary">讲解这一屏</button>
+      <button id="continue" type="button">从这里往下讲</button>
+      <button id="stop" type="button" class="quiet" disabled>停止</button>
+      <p id="status" class="status">先打开课文正文，再讲解这一屏。</p>
+    </section>
+
+    <section id="log" class="log" aria-live="polite"></section>
+
+    <form id="ask" class="ask">
+      <label class="sr-only" for="question">针对最近一屏追问</label>
+      <textarea id="question" rows="2" placeholder="针对最近一屏追问，例如：图里的那个公式到底在算什么？"></textarea>
+      <button type="submit">追问</button>
+    </form>
+    <script src="prompt.js"></script>
+    <script src="sidepanel.js"></script>
+  </body>
+</html>

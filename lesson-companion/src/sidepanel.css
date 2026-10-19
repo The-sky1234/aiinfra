@@ -1,0 +1,119 @@
+:root {
+  color-scheme: light;
+  --bg: #f3efe6;
+  --paper: #fffdf8;
+  --ink: #1c2430;
+  --muted: #5d6775;
+  --line: #e3d9cb;
+  --accent: #1e4f45;
+  --accent-ink: #f4fbf8;
+  --soft: #e7f2ee;
+  --danger: #8a3d32;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 15px/1.6 "Iowan Old Style", "Palatino Linotype", "Songti SC", "Noto Serif SC", serif;
+}
+
+button, input, select, textarea {
+  font: 14px/1.45 "Segoe UI", "PingFang SC", "Noto Sans SC", sans-serif;
+}
+
+.mast, .card, .actions, .log, .ask { margin: 14px; }
+
+.mast h1 {
+  margin: 2px 0 8px;
+  font-size: 28px;
+  line-height: 1.15;
+  font-weight: 650;
+}
+
+.eyebrow, .hint, .status {
+  color: var(--muted);
+  font-family: "Segoe UI", "PingFang SC", "Noto Sans SC", sans-serif;
+  font-size: 12px;
+}
+
+.lede { margin: 0; }
+
+.card, .log, .ask, .actions {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 14px;
+}
+
+.card-head, .actions, .ask {
+  display: flex;
+  gap: 8px;
+}
+
+.card-head { align-items: center; justify-content: space-between; }
+
+.card h2 { margin: 0; font-size: 16px; }
+
+.card label, .ask { display: flex; flex-direction: column; }
+
+.card label { gap: 4px; margin-bottom: 10px; font-family: "Segoe UI", "PingFang SC", sans-serif; font-size: 12px; color: var(--muted); }
+
+input, select, textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ink);
+  padding: 8px 10px;
+}
+
+textarea { resize: vertical; min-height: 64px; }
+
+button {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+button.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+
+button.quiet { background: transparent; }
+
+button:disabled { opacity: 0.45; cursor: default; }
+
+.text-button { border: 0; background: transparent; color: var(--accent); padding: 0; }
+
+.actions { flex-wrap: wrap; }
+
+.actions button { flex: 1 1 auto; }
+
+.status { flex-basis: 100%; margin: 4px 0 0; }
+
+.log { min-height: 180px; display: flex; flex-direction: column; gap: 12px; }
+
+.bubble { white-space: pre-wrap; }
+
+.bubble h3 { margin: 0 0 6px; font-size: 13px; font-family: "Segoe UI", "PingFang SC", sans-serif; color: var(--muted); font-weight: 600; }
+
+.bubble.user { background: var(--soft); border-radius: 12px; padding: 10px 12px; }
+
+.bubble.error { color: var(--danger); }
+
+.ask { position: sticky; bottom: 0; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
